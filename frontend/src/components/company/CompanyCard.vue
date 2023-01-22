@@ -1,6 +1,6 @@
 <template>
   <styled-card class="relative-position">
-    <q-btn icon="mdi-arrow-left" round color="transparent" class="company-card__arrow z-top"/>
+    <q-btn icon="mdi-arrow-left" round color="transparent" class="company-card__arrow" style="z-index: 1"/>
     <q-img v-if="isMobile" style="border-radius: 0 0 10px 10px" height="180px" src="~/assets/company-mobile.svg" />
     <q-img v-else style="border-radius: 10px" height="180px" src="~/assets/company.svg" />
     <div class="q-px-md q-py-lg">

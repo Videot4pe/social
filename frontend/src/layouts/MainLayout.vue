@@ -8,9 +8,7 @@
         class="bg-grey-3 z-top"
       >
         <q-scroll-area style="background-color: #322F39" class="fit">
-          <q-list>
-
-          </q-list>
+          <side-bar style="margin: 80px 10px" />
         </q-scroll-area>
       </q-drawer>
       <q-btn icon="menu" round color="transparent" class="mobile-menu z-top" @click="drawer = !drawer"/>
