@@ -5,7 +5,7 @@
         <q-icon name="search"></q-icon>
       </template>
       <template #append>
-        <q-btn class="q-ml-sm" size="12px" round dense flat icon="mdi-dots-horizontal" color="grey-6" />
+<!--        <q-btn class="q-ml-sm" size="12px" round dense flat icon="mdi-dots-horizontal" color="grey-6" />-->
       </template>
     </q-input>
     <div class="q-pa-sm">

@@ -1,8 +1,8 @@
 <template>
   <q-page class="q-pb-lg">
-    <div style="display: grid; grid-template-columns: 380px 480px; grid-gap: 20px; height: 100%">
-      <friend-list :friends="friends" @chat="activeChatId = $event" />
-      <chat-area v-if="activeChatId && activeFriend" :friend="activeFriend" :chat-id="activeChatId" />
+    <div :style="!isMobile ? 'display: grid; grid-template-columns: 380px 480px; grid-gap: 20px; height: 100%' : 'height: 100'">
+      <friend-list v-if="friendListState" :friends="friends" @chat="activeChatId = $event" />
+      <chat-area v-if="chatAreaState" :friend="activeFriend" :chat-id="activeChatId" @back="activeChatId = undefined" />
     </div>
   </q-page>
 </template>
@@ -13,6 +13,7 @@ import ChatArea from "components/chat/ChatArea.vue";
 import FriendList from "components/chat/FriendList.vue";
 import {computed, ref} from "vue";
 import {Friend} from "src/models/chat";
+import {useQuasar} from "quasar";
 
 const friends = ref<Friend[]>([
   {
@@ -53,6 +54,16 @@ const friends = ref<Friend[]>([
 const activeChatId = ref<number | undefined>()
 const activeFriend = computed(() => {
   return friends.value.find(friend => friend.id === activeChatId.value)
+})
+
+const $q = useQuasar()
+const isMobile = computed(() => $q.platform.is.mobile)
+
+const friendListState = computed(() => {
+  return isMobile.value ? activeChatId.value === undefined : true
+})
+const chatAreaState = computed(() => {
+  return isMobile.value ? activeChatId.value != undefined : activeChatId.value && activeFriend.value
 })
 
 </script>

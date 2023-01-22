@@ -11,7 +11,15 @@
           <side-bar style="margin: 80px 10px" />
         </q-scroll-area>
       </q-drawer>
-      <q-btn icon="menu" round color="transparent" class="mobile-menu z-top" @click="drawer = !drawer"/>
+      <q-btn
+        icon="menu"
+        round
+        color="transparent"
+        text-color="grey-5"
+        unelevated
+        class="mobile-menu z-top"
+        @click="drawer = !drawer"
+      />
       <router-view />
     </q-page-container>
   </q-layout>
@@ -79,8 +87,8 @@ const drawer = ref(false)
 
   .mobile-menu {
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 6px;
+    top: 6px;
   }
 
   .header {

@@ -18,6 +18,8 @@ import StyledButton from 'components/common/StyledButton.vue';
 <style lang="scss" scoped>
 .company {
   &__name {
+    color: #242529;
+    font-style: normal;
     font-weight: 600;
     font-size: 18px;
   }

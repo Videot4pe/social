@@ -3,6 +3,16 @@
     <styled-card class="flex friend q-px-sm">
       <div class="flex justify-between full-width">
         <div class="flex">
+          <q-btn
+            v-if="isMobile"
+            icon="mdi-arrow-left"
+            round
+            color="transparent"
+            text-color="grey-5"
+            unelevated
+            class="mobile-menu z-top"
+            @click="$emit('back')"
+          />
           <q-avatar class="self-center relative-position" size="30px">
             <q-img src="~/assets/company-logo.svg" content="fit" />
           </q-avatar>
@@ -28,10 +38,11 @@
 </template>
 <script setup lang="ts">
 import StyledCard from "components/common/StyledCard.vue";
-import {PropType, ref} from "vue";
+import {computed, PropType, ref} from "vue";
 import {Friend, Message} from "src/models/chat";
 import ChatInput from "components/chat/ChatInput.vue";
 import ChatMessage from "components/chat/ChatMessage.vue";
+import {useQuasar} from "quasar";
 
 const props = defineProps({
   chatId: {
@@ -71,6 +82,10 @@ const onMessage = (text: string) => {
   }
   messages.value = [newMessage, ...messages.value]
 }
+
+const $q = useQuasar()
+const isMobile = computed(() => $q.platform.is.mobile)
+
 </script>
 
 <style scoped lang="scss">
