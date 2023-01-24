@@ -1,5 +1,5 @@
 <template>
-  <styled-card class="recommendations q-pa-md">
+  <styled-card class="recommendations q-px-md q-pt-md q-mb-md">
     <div class="flex justify-between full-width">
       <div class="recommendations__title">Recommendations</div>
       <styled-card v-for="recommendation in recommendations" :key="recommendation.id" class="recommendations__block full-width q-my-sm q-pa-md">
