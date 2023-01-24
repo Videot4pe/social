@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div :style="!isMobile ? 'display: grid; grid-template-columns: 580px 280px; grid-gap: 20px' : 'padding-bottom: 150px'">
+    <div class="index-page" :style="!isMobile ? 'display: grid; grid-template-columns: 580px 280px; grid-gap: 20px' : 'padding-bottom: 150px'">
       <div>
         <company-card class="full-width" />
         <feed-list class="q-mt-lg" />
@@ -23,3 +23,7 @@ const isMobile = computed(() => $q.platform.is.mobile)
 
 
 </script>
+
+<style scoped lang="scss">
+
+</style>
