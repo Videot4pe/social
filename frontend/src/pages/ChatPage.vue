@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pb-lg">
-    <div :style="!isMobile ? 'display: grid; grid-template-columns: 380px 480px; grid-gap: 20px; height: 100%' : 'height: 100'">
+    <div :class="!isMobile ? 'chat-page' : 'mobile'">
       <friend-list v-if="friendListState" :friends="friends" @chat="activeChatId = $event" />
       <chat-area v-if="chatAreaState" :friend="activeFriend" :chat-id="activeChatId" @back="activeChatId = undefined" />
     </div>
@@ -67,3 +67,19 @@ const chatAreaState = computed(() => {
 })
 
 </script>
+
+<style scoped lang="scss">
+.chat-page {
+  display: grid;
+  grid-template-columns: 380px 480px;
+  grid-gap: 20px;
+  height: 100%;
+
+  @media (max-width: 1250px) {
+    grid-template-columns: 1fr 1.26fr;
+  }
+}
+.mobile {
+  height: 100vh;
+}
+</style>

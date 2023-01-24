@@ -25,8 +25,9 @@
   </q-layout>
   <q-layout v-else view="lHh Lpr lFf">
     <q-header class="flex justify-center" style="background-color: #F1EEF9">
-      <q-toolbar style="display: grid; grid-template-columns: 1fr 280px 580px 280px 1fr; grid-gap: 20px">
-        <div style="grid-column: span 2" class="full-width flex justify-end">
+      <q-toolbar class="header">
+        <div></div>
+        <div class="flex justify-start">
           <div class="header__left flex justify-end">
             <q-avatar size="30">
               <q-img width="30px" height="30px" src="~/assets/company-logo.svg" />
@@ -50,8 +51,9 @@
     </q-header>
 
     <q-page-container style="background-color: #F1EEF9">
-      <div style="display: grid; grid-template-columns: 1fr 280px 880px 1fr; grid-gap: 20px">
-        <div style="grid-column: span 2" class="full-width flex justify-end layout__left-area">
+      <div class="content">
+        <div class="layout__left-area--border"></div>
+        <div class="full-width flex justify-end layout__left-area">
           <side-block class="q-pt-lg">
             <side-bar />
           </side-block>
@@ -82,6 +84,11 @@ const drawer = ref(false)
     &__left-area {
       background-color: #322F39;
       border-radius: 0 10px 0 0;
+
+      &--border {
+        background-color: #322F39;
+        margin-right: -20px;
+      }
     }
   }
 
@@ -92,25 +99,44 @@ const drawer = ref(false)
   }
 
   .header {
+    display: grid;
+    grid-template-columns: 1fr 280px 580px 280px 1fr;
+    grid-gap: 20px;
+
+    @media (max-width: 1250px) {
+      grid-template-columns: 0 1fr 2.07fr 1fr 0;
+    }
+
     &__title {
       font-weight: 600;
       font-size: 18px;
       color: #242529;
     }
     &__left {
-      width: 280px;
+      //width: 280px;
     }
     &__middle {
-      width: 580px;
+      //width: 580px;
     }
     &__right {
-      width: 100%;
+      //width: 280px;
+      display: flex;
+      justify-content: flex-end;
 
       &--text {
         font-weight: 600;
         font-size: 14px;
         color: #8A96A3;
       }
+    }
+  }
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 280px 880px 1fr;
+    grid-gap: 20px;
+
+    @media (max-width: 1250px) {
+      grid-template-columns: 0 1fr 3.14fr 0;
     }
   }
 </style>

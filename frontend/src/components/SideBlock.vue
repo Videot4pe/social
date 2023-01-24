@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 280px">
+  <div class="full-width">
     <slot />
   </div>
 </template>
