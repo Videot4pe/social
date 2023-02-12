@@ -1,6 +1,6 @@
 <template>
   <label class="styled-search">
-    <q-input rounded dense standout placeholder="Find a profile" v-model="search" v-bind="$attrs">
+    <q-input rounded dense outlined placeholder="Find a profile" bg-color="white" v-model="search" v-bind="$attrs">
       <template v-slot:append>
         <q-icon v-if="search === ''" name="search"></q-icon>
         <q-icon v-else name="clear" class="cursor-pointer" @click="search = ''"></q-icon>
